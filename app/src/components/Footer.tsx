@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (section: string) => void;
@@ -32,39 +32,10 @@ const Footer = ({ onNavigate }: FooterProps) => {
                 İnşaat
               </span>
             </button>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
-              Kalite, estetik ve güven ile hayalinizdeki yapıları inşa ediyoruz. 
-              15+ yıllık deneyimimizle Çanakkale ve İstanbul'da hizmetinizdeyiz.
+            <p className="text-white/60 text-sm leading-relaxed">
+              Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz. 
+              Mühendislik disiplini ve profesyonel yaklaşımla sektörde faaliyet gösteriyoruz.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-bronze hover:text-white transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-bronze hover:text-white transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://wa.me/905325400517"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-bronze hover:text-white transition-all duration-300"
-                aria-label="WhatsApp"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Menu Links */}
@@ -100,8 +71,7 @@ const Footer = ({ onNavigate }: FooterProps) => {
               {[
                 'Konut Projeleri',
                 'Ticari Yapılar',
-                'Restorasyon',
-                'İç Mimari',
+                'Kentsel Dönüşüm',
                 'Proje Yönetimi',
               ].map((service) => (
                 <li key={service}>
@@ -158,9 +128,6 @@ const Footer = ({ onNavigate }: FooterProps) => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/40 text-sm text-center md:text-left">
               © 2024 TROYAN İnşaat. Tüm hakları saklıdır.
-            </p>
-            <p className="text-white/40 text-sm">
-              Çanakkale & İstanbul
             </p>
           </div>
         </div>

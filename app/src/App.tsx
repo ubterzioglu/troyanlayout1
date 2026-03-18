@@ -4,23 +4,13 @@ import Footer from './components/Footer';
 
 // Home Sections
 import Hero from './sections/Hero';
-import Stats from './sections/Stats';
 import About from './sections/About';
-import Values from './sections/Values';
 import ProjectsPreview from './sections/ProjectsPreview';
 import CTA from './sections/CTA';
-
-// About Page Sections
-import AboutHero from './sections/AboutHero';
-import Story from './sections/Story';
-import Timeline from './sections/Timeline';
-import Team from './sections/Team';
-import AboutCTA from './sections/AboutCTA';
 
 // Projects Page Sections
 import ProjectsHero from './sections/ProjectsHero';
 import ProjectsList from './sections/ProjectsList';
-import ProjectsCTA from './sections/ProjectsCTA';
 
 // Contact Page Sections
 import ContactHero from './sections/ContactHero';
@@ -37,7 +27,7 @@ function App() {
     if (currentPage !== 'home') return;
 
     const handleScroll = () => {
-      const sections = ['home', 'stats', 'about-preview', 'values', 'projects-preview', 'cta'];
+      const sections = ['home', 'about-preview', 'projects-preview', 'cta'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -79,9 +69,7 @@ function App() {
         return (
           <>
             <Hero onNavigate={handleNavigate} />
-            <Stats />
             <About onNavigate={handleNavigate} />
-            <Values />
             <ProjectsPreview onNavigate={handleNavigate} />
             <CTA onNavigate={handleNavigate} />
           </>
@@ -89,11 +77,9 @@ function App() {
       case 'about':
         return (
           <>
-            <AboutHero />
-            <Story />
-            <Timeline />
-            <Team />
-            <AboutCTA onNavigate={handleNavigate} />
+            <Hero onNavigate={handleNavigate} />
+            <About onNavigate={handleNavigate} />
+            <CTA onNavigate={handleNavigate} />
           </>
         );
       case 'projects':
@@ -101,7 +87,6 @@ function App() {
           <>
             <ProjectsHero />
             <ProjectsList />
-            <ProjectsCTA onNavigate={handleNavigate} />
           </>
         );
       case 'contact':

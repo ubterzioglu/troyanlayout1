@@ -6,10 +6,10 @@ interface AboutProps {
 }
 
 const features = [
-  'Modern mimari anlayış',
-  'Kaliteli malzeme kullanımı',
+  'Güncel yönetmeliklere uygun yapılar',
+  'Depreme dayanıklı konstrüksiyon',
+  'Kaliteli malzeme seçimi',
   'Zamanında teslimat',
-  '7/24 destek hizmeti',
 ];
 
 const About = ({ onNavigate }: AboutProps) => {
@@ -57,20 +57,23 @@ const About = ({ onNavigate }: AboutProps) => {
               Hakkımızda
             </span>
             <h2 className="section-title-left font-display text-3xl lg:text-4xl xl:text-5xl font-bold text-charcoal mb-8">
-              15 Yılı Aşkın Deneyimle
-              <span className="block text-bronze mt-2">İnşaat Sektöründeyiz</span>
+              Güvenli ve Sağlam
+              <span className="block text-bronze mt-2">Yapılar İnşa Ediyoruz</span>
             </h2>
             <p className="text-concrete text-base lg:text-lg leading-relaxed mb-6">
-              1999 yılında Çanakkale'de kurulan TROYAN İnşaat, kaliteli ve güvenilir 
-              hizmet anlayışıyla sektörde öncü bir konuma gelmiştir. Modern mimari 
-              anlayışı, yenilikçi çözümleri ve uzman ekibiyle her projede mükemmelliği 
-              hedefliyoruz.
+              TROYAN İNŞAAT Şirketi, güvenli, sağlam ve uzun ömürlü yapılar inşa etme hedefiyle kurulmuş; 
+              mühendislik disiplini, kalite anlayışı ve profesyonel yaklaşımıyla yapı sektöründe faaliyet gösteren 
+              bir inşaat firmasıdır.
+            </p>
+            <p className="text-concrete text-base lg:text-lg leading-relaxed mb-6">
+              Kurulduğumuz günden bu yana, her projeyi yalnızca bir yapı değil, aynı zamanda kalıcı bir değer olarak ele alıyoruz. 
+              Projelerimizin temelinde doğru planlama, güçlü mühendislik ve kaliteli malzeme seçimi yer alır. 
+              Konut, ticari yapı ve kentsel dönüşüm projelerinde; güncel yönetmeliklere uygun, depreme dayanıklı ve 
+              modern yaşam ihtiyaçlarını karşılayan çözümler üretiriz.
             </p>
             <p className="text-concrete text-base lg:text-lg leading-relaxed mb-8">
-              Çanakkale ve İstanbul'da tamamladığımız 80'den fazla proje ile 
-              500'ü aşkın aileye yeni bir yuva kazandırdık. Her projemizde 
-              müşteri memnuniyetini ön planda tutuyor, estetik ve fonksiyonelliği 
-              bir araya getiriyoruz.
+              Tüm süreçlerimiz, alanında uzman teknik kadromuz tarafından titizlikle yönetilir. 
+              Şeffaflık, güven ve sürdürülebilirlik ilkelerini ön planda tutarız.
             </p>
 
             {/* Features List */}
@@ -105,7 +108,7 @@ const About = ({ onNavigate }: AboutProps) => {
               <div className="relative overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="TROYAN İnşaat Ofis"
+                  alt="TROYAN İnşaat"
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
                 {/* Overlay */}
@@ -115,12 +118,6 @@ const About = ({ onNavigate }: AboutProps) => {
               {/* Decorative Elements */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-bronze/30 -z-10" />
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-bronze/10 -z-10" />
-
-              {/* Experience Badge */}
-              <div className="absolute bottom-8 left-8 bg-white p-6 shadow-luxury">
-                <div className="font-display text-4xl font-bold text-bronze mb-1">15+</div>
-                <div className="text-charcoal text-sm uppercase tracking-wider">Yıllık Deneyim</div>
-              </div>
             </div>
           </div>
         </div>

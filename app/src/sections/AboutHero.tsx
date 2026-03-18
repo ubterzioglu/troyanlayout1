@@ -57,8 +57,8 @@ const AboutHero = () => {
           </h1>
           
           <p className="text-white/70 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            1999'dan beri süregelen kalite anlayışımız ve müşteri odaklı 
-            hizmetimizle sektörde öncü konumdayız.
+            Mühendislik disiplini ve profesyonel yaklaşımımızla 
+            sektörde güvenilir bir marka olma yolunda ilerliyoruz.
           </p>
         </div>
       </div>

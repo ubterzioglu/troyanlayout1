@@ -57,8 +57,8 @@ const ProjectsHero = () => {
           </h1>
           
           <p className="text-white/70 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            15+ yıllık deneyimimizle Çanakkale ve İstanbul'da 
-            80'den fazla projeye imza attık.
+            Çanakkale ve İstanbul'da konut, ticari yapı ve villa projeleri 
+            ile hayallerinizi gerçeğe dönüştürüyoruz.
           </p>
         </div>
       </div>

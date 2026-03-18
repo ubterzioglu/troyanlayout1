@@ -24,9 +24,9 @@ const Hero = ({ onNavigate }: HeroProps) => {
   };
 
   const scrollToNext = () => {
-    const statsSection = document.getElementById('stats');
-    if (statsSection) {
-      statsSection.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.getElementById('about-preview');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -59,7 +59,7 @@ const Hero = ({ onNavigate }: HeroProps) => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Subtitle */}
           <p className="text-bronze text-sm lg:text-base font-semibold uppercase tracking-[0.3em] mb-6 animate-fadeInUp">
-            1999'dan Beri
+            Kalite ve Güvenin Adresi
           </p>
 
           {/* Main Title */}
@@ -70,8 +70,8 @@ const Hero = ({ onNavigate }: HeroProps) => {
 
           {/* Description */}
           <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 animate-fadeInUp delay-200 leading-relaxed">
-            Kalite, estetik ve güven ile hayalinizdeki yapıları inşa ediyoruz.
-            <span className="hidden sm:inline"> Çanakkale ve İstanbul'da prestijli projeler.</span>
+            Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz.
+            <span className="hidden sm:inline"> Mühendislik disiplini ve profesyonel yaklaşımla sektörde faaliyet gösteriyoruz.</span>
           </p>
 
           {/* CTA Buttons */}
