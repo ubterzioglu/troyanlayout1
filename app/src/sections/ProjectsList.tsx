@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { MapPin, Calendar, Maximize, Building } from 'lucide-react';
 
-type Category = 'Tümü' | 'Konut' | 'Ticari' | 'Restorasyon' | 'Kamu';
+type Category = 'Tümü' | 'Konut' | 'Villa' | 'Ticari';
 
 interface Project {
   id: number;
@@ -15,74 +15,41 @@ interface Project {
   description: string;
 }
 
-const categories: Category[] = ['Tümü', 'Konut', 'Ticari', 'Restorasyon', 'Kamu'];
+const categories: Category[] = ['Tümü', 'Konut', 'Villa', 'Ticari'];
 
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Çanakkale Rezidans',
+    title: 'Kaya Kent Sitesi',
     category: 'Konut',
     year: '2024',
-    location: 'Çanakkale Merkez',
-    area: '4.200 m²',
-    capacity: '24 Daire',
-    image: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Şehrin kalbinde modern yaşam alanları sunan 24 dairelik lüks rezidans projesi.',
+    location: 'Karacaören, Çanakkale',
+    area: '16.000 m²',
+    capacity: '100 Daire',
+    image: '/projects/kaya-kent-1.jpg',
+    description: 'Karacaören, Çanakkale\'de yer alan Kaya Kent Sitesi, 100 daire ve ticari alanlardan oluşan, toplam 16.000 m² inşaat alanına sahip modern bir konut projesidir. Güncel yönetmeliklere uygun, depreme dayanıklı yapısı ve modern yaşam alanlarıyla öne çıkmaktadır.',
   },
   {
     id: 2,
-    title: 'İstanbul Ticaret Merkezi',
-    category: 'Ticari',
+    title: 'Keskin City Sitesi',
+    category: 'Konut',
     year: '2023',
-    location: 'İstanbul, Ataşehir',
-    area: '12.500 m²',
-    capacity: '6 Kat',
-    image: 'https://images.pexels.com/photos/1485894/pexels-photo-1485894.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Modern ofis kompleksi, iş dünyasının yeni merkezi.',
+    location: 'Çanakkale',
+    area: '8.500 m²',
+    capacity: '60 Daire',
+    image: '/projects/keskin-city-1.jpg',
+    description: 'Çanakkale merkezde konforlu yaşam alanları sunan Keskin City Sitesi, modern mimarisi ve kaliteli işçiliğiyle dikkat çekmektedir. Aileler için tasarlanmış geniş sosyal alanları ve güvenli site konseptiyle yaşam kalitesini artırmaktadır.',
   },
   {
     id: 3,
-    title: 'Sahil Villaları',
-    category: 'Konut',
+    title: 'ON4 Villas',
+    category: 'Villa',
     year: '2023',
-    location: 'Çanakkale, Kepez',
-    area: '8.000 m²',
-    capacity: '8 Villa',
-    image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Deniz manzaralı özel villa projesi, lüks yaşam alanları.',
-  },
-  {
-    id: 4,
-    title: 'Tarihi Konak Restorasyonu',
-    category: 'Restorasyon',
-    year: '2022',
-    location: 'Çanakkale Merkez',
-    area: '1.800 m²',
-    capacity: '1 Yapı',
-    image: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Tarihi dokuyu koruyarak modern kullanıma kazandırılan restorasyon projesi.',
-  },
-  {
-    id: 5,
-    title: 'Hastane Ek Bina',
-    category: 'Kamu',
-    year: '2022',
-    location: 'Çanakkale',
-    area: '6.300 m²',
-    capacity: '5 Kat',
-    image: 'https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Sağlık hizmetlerine destek olan modern hastane ek binası.',
-  },
-  {
-    id: 6,
-    title: 'Bağcılar Konut Projesi',
-    category: 'Konut',
-    year: '2021',
-    location: 'İstanbul, Bağcılar',
-    area: '18.000 m²',
-    capacity: '120 Daire',
-    image: 'https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: 'Büyük ölçekli konut projesi, aileler için konforlu yaşam alanları.',
+    location: 'Tepeören, Tuzla - İstanbul',
+    area: '8.400 m²',
+    capacity: '14 Villa',
+    image: '/projects/on4-villas-1.jpg',
+    description: 'İstanbul Tuzla Tepeören\'de yer alan ON4 Villas, 14 özel villadan oluşan lüks bir site projesidir. Toplam 8.400 m² inşaat alanına sahip olan proje, modern villa konsepti ve özel bahçeleriyle üst düzey bir yaşam sunmaktadır.',
   },
 ];
 
@@ -153,8 +120,8 @@ const ProjectsList = () => {
                 }`}
               >
                 {category === 'Konut' ? 'Konut Projesi' : 
-                 category === 'Ticari' ? 'Ticari Yapı' : 
-                 category === 'Kamu' ? 'Kamu Yapısı' : category}
+                 category === 'Villa' ? 'Villa Projesi' : 
+                 category === 'Ticari' ? 'Ticari Yapı' : category}
               </button>
             ))}
           </div>
@@ -187,8 +154,8 @@ const ProjectsList = () => {
                   <div className="absolute top-6 left-6">
                     <span className="bg-bronze text-white text-xs font-semibold uppercase tracking-wider px-4 py-2">
                       {project.category === 'Konut' ? 'Konut Projesi' : 
-                       project.category === 'Ticari' ? 'Ticari Yapı' : 
-                       project.category === 'Kamu' ? 'Kamu Yapısı' : project.category}
+                       project.category === 'Villa' ? 'Villa Projesi' : 
+                       project.category === 'Ticari' ? 'Ticari Yapı' : project.category}
                     </span>
                   </div>
                 </div>
