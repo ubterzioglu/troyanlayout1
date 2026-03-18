@@ -25,12 +25,11 @@ const Footer = ({ onNavigate }: FooterProps) => {
               onClick={() => handleNavClick('home')}
               className="flex flex-col items-start mb-6"
             >
-              <span className="font-display text-3xl font-bold tracking-wider text-white">
-                TROYAN
-              </span>
-              <span className="text-bronze text-sm font-semibold tracking-[0.3em] uppercase">
-                İnşaat
-              </span>
+              <img
+                src="/logo.png"
+                alt="TROYAN İnşaat"
+                className="h-16 lg:h-20 brightness-0 invert"
+              />
             </button>
             <p className="text-white/60 text-sm leading-relaxed">
               Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz. 

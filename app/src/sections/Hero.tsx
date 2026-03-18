@@ -57,25 +57,34 @@ const Hero = ({ onNavigate }: HeroProps) => {
       {/* Content */}
       <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20 pt-24">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Logo */}
+          <div className="mb-8 animate-fadeInUp">
+            <img
+              src="/logo.png"
+              alt="TROYAN İnşaat"
+              className="h-32 sm:h-40 lg:h-48 mx-auto drop-shadow-2xl"
+            />
+          </div>
+
           {/* Subtitle */}
-          <p className="text-bronze text-sm lg:text-base font-semibold uppercase tracking-[0.3em] mb-6 animate-fadeInUp">
+          <p className="text-bronze text-sm lg:text-base font-semibold uppercase tracking-[0.3em] mb-6 animate-fadeInUp delay-100">
             Kalite ve Güvenin Adresi
           </p>
 
           {/* Main Title */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-8 animate-fadeInUp delay-100 leading-tight">
-            TROYAN
-            <span className="block text-bronze">İNŞAAT</span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 animate-fadeInUp delay-200 leading-tight">
+            Güvenli, Sağlam ve
+            <span className="block text-bronze mt-2">Uzun Ömürlü Yapılar</span>
           </h1>
 
           {/* Description */}
-          <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 animate-fadeInUp delay-200 leading-relaxed">
-            Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz.
-            <span className="hidden sm:inline"> Mühendislik disiplini ve profesyonel yaklaşımla sektörde faaliyet gösteriyoruz.</span>
+          <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 animate-fadeInUp delay-300 leading-relaxed">
+            Mühendislik disiplini, kalite anlaşı ve profesyonel yaklaşımla
+            <span className="hidden sm:inline"> sektörde faaliyet gösteriyoruz.</span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-400">
             <button
               onClick={() => handleNavClick('projects')}
               className="btn-bronze group"

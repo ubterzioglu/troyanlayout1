@@ -37,8 +37,8 @@ const Header = ({ currentSection = 'home', onNavigate }: HeaderProps) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-cream/95 backdrop-blur-md shadow-lg py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-cream/95 backdrop-blur-md shadow-lg py-3'
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="w-full px-6 lg:px-12 xl:px-20">
@@ -46,18 +46,15 @@ const Header = ({ currentSection = 'home', onNavigate }: HeaderProps) => {
           {/* Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex flex-col items-start"
+            className="flex items-center"
           >
-            <span
-              className={`font-display text-2xl lg:text-3xl font-bold tracking-wider transition-colors duration-300 ${
-                isScrolled ? 'text-charcoal' : 'text-white'
+            <img
+              src="/logo.png"
+              alt="TROYAN İnşaat"
+              className={`transition-all duration-300 ${
+                isScrolled ? 'h-12 lg:h-14' : 'h-14 lg:h-16'
               }`}
-            >
-              TROYAN
-            </span>
-            <span className="text-bronze text-xs lg:text-sm font-semibold tracking-[0.3em] uppercase">
-              İnşaat
-            </span>
+            />
           </button>
 
           {/* Desktop Navigation */}
