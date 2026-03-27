@@ -55,7 +55,7 @@ const Header = ({ currentSection = 'home', onNavigate }: HeaderProps) => {
               >
                 <img src="/logo.png" alt="Troyan İnşaat" className="h-9 w-auto sm:h-11" />
                 <span className="text-[11px] font-medium tracking-[0.03em] text-charcoal/78 sm:text-sm sm:tracking-[0.04em]">
-                  Troyan İnşaat: Güvenli, sağlam ve uzun ömürlü yapılar.
+                  Troyan İnşaat
                 </span>
               </button>
             </div>
