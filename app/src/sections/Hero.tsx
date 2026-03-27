@@ -1,18 +1,20 @@
 import { useEffect, useRef } from 'react';
-import { ChevronDown, ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, ChevronDown, Phone } from 'lucide-react';
 
 interface HeroProps {
   onNavigate?: (section: string) => void;
 }
 
+const HERO_VIDEO_URL = import.meta.env.VITE_HERO_VIDEO_URL || '/hero/hero-video.mp4';
+const HERO_POSTER_URL = import.meta.env.VITE_HERO_POSTER_URL || '/hero/hero-poster.jpg';
+
 const Hero = ({ onNavigate }: HeroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Ensure video plays on load
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
-        // Autoplay blocked, user will need to interact
+        // Autoplay can be blocked until user interaction.
       });
     }
   }, []);
@@ -31,8 +33,10 @@ const Hero = ({ onNavigate }: HeroProps) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
@@ -40,76 +44,62 @@ const Hero = ({ onNavigate }: HeroProps) => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          className="h-full w-full object-cover"
+          poster={HERO_POSTER_URL}
         >
-          <source
-            src="https://videos.pexels.com/video-files/1571480/1571480-hd_1920_1080_30fps.mp4"
-            type="video/mp4"
-          />
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
-        {/* Overlays */}
         <div className="absolute inset-0 video-overlay" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(26,26,26,0.34)_0%,rgba(26,26,26,0.5)_38%,rgba(26,26,26,0.24)_72%,transparent_100%)]" />
         <div className="absolute inset-0 noise-overlay" />
-        <div className="absolute inset-0 grid-lines" />
+        <div className="absolute inset-0 bg-charcoal/36" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20 pt-24">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Logo */}
-          <div className="mb-8 animate-fadeInUp">
+      <div className="relative z-10 w-full px-6 pt-24 lg:px-12 xl:px-20">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="mb-4 animate-fadeInUp">
             <img
               src="/logo.png"
-              alt="TROYAN İnşaat"
-              className="h-32 sm:h-40 lg:h-48 mx-auto drop-shadow-2xl"
+              alt="Troyan İnşaat"
+              className="hero-logo mx-auto h-64 sm:h-80 lg:h-96"
             />
           </div>
 
-          {/* Subtitle */}
-          <p className="text-bronze text-sm lg:text-base font-semibold uppercase tracking-[0.3em] mb-6 animate-fadeInUp delay-100">
-            Kalite ve Güvenin Adresi
-          </p>
-
-          {/* Main Title */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 animate-fadeInUp delay-200 leading-tight">
+          <h1 className="animate-fadeInUp delay-200 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Güvenli, Sağlam ve
-            <span className="block text-bronze mt-2">Uzun Ömürlü Yapılar</span>
+            <span className="mt-2 block text-bronze">Uzun Ömürlü Yapılar</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-white/80 text-lg lg:text-xl max-w-2xl mx-auto mb-12 animate-fadeInUp delay-300 leading-relaxed">
-            Mühendislik disiplini, kalite anlaşı ve profesyonel yaklaşımla
-            <span className="hidden sm:inline"> sektörde faaliyet gösteriyoruz.</span>
+          <p className="mx-auto mb-10 mt-6 max-w-3xl animate-fadeInUp delay-300 text-base leading-relaxed text-white/80 lg:text-lg">
+            Mühendislik disiplini, kalite anlayışı ve profesyonel yaklaşımıyla sektörde faaliyet
+            gösteriyoruz.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-400">
+          <div className="animate-fadeInUp delay-400 flex flex-col justify-center gap-4 sm:flex-row">
             <button
               onClick={() => handleNavClick('projects')}
-              className="btn-bronze group"
+              className="btn-bronze btn-uniform group"
             >
-              Projelerimizi Gör
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              Projelerimiz
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <button
               onClick={() => handleNavClick('contact')}
-              className="btn-outline"
+              className="btn-outline btn-uniform"
             >
-              <Phone className="w-4 h-4 mr-2" />
+              <Phone className="mr-2 h-4 w-4" />
               İletişime Geç
             </button>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <button
         onClick={scrollToNext}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white transition-colors duration-300 animate-bounce"
+        className="absolute bottom-10 left-6 z-10 animate-bounce text-white/60 transition-colors duration-300 hover:text-white lg:left-12 xl:left-20"
         aria-label="Scroll down"
       >
-        <ChevronDown className="w-8 h-8" />
+        <ChevronDown className="h-8 w-8" />
       </button>
     </section>
   );

@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Home Sections
 import Hero from './sections/Hero';
@@ -21,6 +22,7 @@ type Page = 'home' | 'about' | 'projects' | 'contact';
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [currentSection, setCurrentSection] = useState('home');
+  const [pendingScrollTarget, setPendingScrollTarget] = useState<string | null>(null);
 
   // Update current section based on scroll position for home page
   useEffect(() => {
@@ -48,11 +50,46 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentPage]);
 
+  useEffect(() => {
+    if (!pendingScrollTarget) return;
+
+    const scrollToTarget = () => {
+      if (pendingScrollTarget === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setPendingScrollTarget(null);
+        return;
+      }
+
+      const element = document.getElementById(pendingScrollTarget);
+      if (!element) return;
+
+      const headerOffset = 128;
+      const targetTop = Math.max(element.getBoundingClientRect().top + window.scrollY - headerOffset, 0);
+
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      setPendingScrollTarget(null);
+    };
+
+    const frameId = window.requestAnimationFrame(scrollToTarget);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [currentPage, pendingScrollTarget]);
+
   const handleNavigate = (section: string) => {
-    // Map section to page
+    if (section === 'about') {
+      setCurrentPage('home');
+      setCurrentSection('about');
+      setPendingScrollTarget('about-preview');
+      return;
+    }
+
+    if (section === 'home') {
+      setCurrentPage('home');
+      setCurrentSection('home');
+      setPendingScrollTarget('home');
+      return;
+    }
+
     const pageMap: Record<string, Page> = {
-      home: 'home',
-      about: 'about',
       projects: 'projects',
       contact: 'contact',
     };
@@ -60,6 +97,7 @@ function App() {
     const targetPage = pageMap[section] || 'home';
     setCurrentPage(targetPage);
     setCurrentSection(section);
+    setPendingScrollTarget(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -105,6 +143,7 @@ function App() {
     <div className="min-h-screen bg-cream">
       <Header currentSection={currentSection} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
+      <ScrollToTopButton />
       <Footer onNavigate={handleNavigate} />
     </div>
   );

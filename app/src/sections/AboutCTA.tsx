@@ -67,14 +67,14 @@ const AboutCTA = ({ onNavigate }: AboutCTAProps) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => handleNavClick('contact')}
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-bronze font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-charcoal hover:text-white group"
+              className="btn-uniform inline-flex items-center justify-center px-8 py-4 bg-white text-bronze font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:bg-charcoal hover:text-white group"
             >
               İletişime Geç
               <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <a
               href="tel:+905325400517"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold uppercase tracking-wider text-sm border border-white/30 transition-all duration-300 hover:bg-white/10"
+              className="btn-uniform inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold uppercase tracking-wider text-sm border border-white/30 transition-all duration-300 hover:bg-white/10"
             >
               <Phone className="w-4 h-4 mr-2" />
               Hemen Ara

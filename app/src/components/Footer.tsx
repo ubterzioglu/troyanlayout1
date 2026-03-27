@@ -1,133 +1,122 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (section: string) => void;
 }
+
+const navItems = [
+  { id: 'home', label: 'Ana Sayfa' },
+  { id: 'about', label: 'Hakkımızda' },
+  { id: 'projects', label: 'Projeler' },
+  { id: 'contact', label: 'İletişim' },
+];
+
+const contactItems = [
+  {
+    label: 'Adres',
+    href: 'https://maps.google.com/?q=Karacaören+Mah.+Karacaören+Cad.+No:16/1-3+17000+Çanakkale+Merkez',
+    icon: MapPin,
+    external: true,
+  },
+  {
+    label: 'Telefon',
+    href: 'tel:+905325400517',
+    icon: Phone,
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/905325400517',
+    icon: MessageCircle,
+    external: true,
+  },
+  {
+    label: 'E-posta',
+    href: 'mailto:info@troyaninsaat.com',
+    icon: Mail,
+  },
+];
 
 const Footer = ({ onNavigate }: FooterProps) => {
   const handleNavClick = (sectionId: string) => {
     if (onNavigate) {
       onNavigate(sectionId);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const brandDivider = (
+    <span className="hidden h-16 w-px bg-gradient-to-b from-transparent via-bronze/55 to-transparent lg:block" />
+  );
+
   return (
-    <footer className="bg-charcoal text-white relative">
-      {/* Decorative Top Border */}
+    <footer className="relative bg-charcoal text-white">
       <div className="h-1 w-full bg-gradient-to-r from-transparent via-bronze to-transparent" />
 
-      <div className="w-full px-6 lg:px-12 xl:px-20 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <button
-              onClick={() => handleNavClick('home')}
-              className="flex flex-col items-start mb-6"
-            >
+      <div className="w-full px-6 pb-8 pt-10 lg:px-12 lg:pb-10 lg:pt-12 xl:px-20">
+        <div className="flex flex-col gap-8">
+          <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-5 text-center lg:min-h-[96px] lg:flex-row lg:items-center lg:justify-center lg:gap-6 lg:text-left">
               <img
                 src="/logo.png"
-                alt="TROYAN İnşaat"
-                className="h-16 lg:h-20 brightness-0 invert"
+                alt="Troyan İnşaat"
+                className="h-16 brightness-0 invert lg:h-20"
               />
-            </button>
-            <p className="text-white/60 text-sm leading-relaxed">
-              Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz. 
-              Mühendislik disiplini ve profesyonel yaklaşımla sektörde faaliyet gösteriyoruz.
-            </p>
-          </div>
-
-          {/* Menu Links */}
-          <div>
-            <h4 className="font-display text-lg font-semibold mb-6 text-white">
-              Menü
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { id: 'home', label: 'Ana Sayfa' },
-                { id: 'about', label: 'Hakkımızda' },
-                { id: 'projects', label: 'Projeler' },
-                { id: 'contact', label: 'İletişim' },
-              ].map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => handleNavClick(item.id)}
-                    className="text-white/60 hover:text-bronze transition-colors duration-300 text-sm"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="font-display text-lg font-semibold mb-6 text-white">
-              Hizmetlerimiz
-            </h4>
-            <ul className="space-y-3">
-              {[
-                'Konut Projeleri',
-                'Ticari Yapılar',
-                'Kentsel Dönüşüm',
-                'Proje Yönetimi',
-              ].map((service) => (
-                <li key={service}>
-                  <span className="text-white/60 text-sm">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-display text-lg font-semibold mb-6 text-white">
-              İletişim
-            </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-bronze flex-shrink-0 mt-0.5" />
-                <span className="text-white/60 text-sm">
-                  Karacaören Mah., Karacaören Cad. No:16/1-3,<br />
-                  17000 Çanakkale Merkez
+              {brandDivider}
+              <div className="flex flex-col justify-center leading-none">
+                <span className="font-display text-2xl font-semibold text-white lg:text-3xl">
+                  Troyan
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-bronze flex-shrink-0" />
-                <a
-                  href="tel:+905325400517"
-                  className="text-white/60 hover:text-bronze transition-colors duration-300 text-sm"
-                >
-                  +90 532 540 05 17
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-bronze flex-shrink-0" />
-                <a
-                  href="mailto:info@troyaninsaat.com"
-                  className="text-white/60 hover:text-bronze transition-colors duration-300 text-sm"
-                >
-                  info@troyaninsaat.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-bronze flex-shrink-0 mt-0.5" />
-                <div className="text-white/60 text-sm">
-                  <p>Pzt-Cum: 08:00 - 18:00</p>
-                  <p>Cmt: 09:00 - 14:00</p>
-                </div>
-              </li>
-            </ul>
+                <span className="mt-1 font-display text-2xl font-semibold text-white lg:text-3xl">
+                  İnşaat
+                </span>
+              </div>
+              {brandDivider}
+              <p className="max-w-[44rem] text-base leading-relaxed text-white/68 lg:self-center lg:text-[1.08rem] lg:leading-[1.7]">
+                <span className="block">Güvenli, sağlam ve uzun ömürlü yapılar inşa ediyoruz.</span>
+                <span className="block">Mühendislik disipliniyle kalıcı değer taşıyan projeler hayata geçiriyoruz.</span>
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/40 text-sm text-center md:text-left">
-              © 2024 TROYAN İnşaat. Tüm hakları saklıdır.
-            </p>
+          <div className="flex flex-wrap items-center justify-center gap-5 py-2">
+            {contactItems.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="group flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-bronze/30 bg-bronze/12 text-bronze shadow-[0_0_22px_rgba(184,115,51,0.18),0_12px_30px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-bronze/60 hover:bg-bronze/18 hover:text-white hover:shadow-[0_0_34px_rgba(184,115,51,0.34),0_16px_34px_rgba(0,0,0,0.3)]"
+                >
+                  <Icon className="h-7 w-7 transition-transform duration-300 group-hover:scale-110" />
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 border-t border-white/10 pt-8 text-sm text-white/55">
+            {navItems.map((item, index) => (
+              <div key={item.id} className="flex items-center gap-4">
+                <button
+                  onClick={() => handleNavClick(item.id)}
+                  className="transition-colors duration-300 hover:text-bronze"
+                >
+                  {item.label}
+                </button>
+                {index < navItems.length - 1 && <span className="h-4 w-px bg-white/18" />}
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-white/10 pt-6">
+            <div className="flex items-center justify-center">
+              <p className="text-center text-sm text-white/40">
+                © 2026 Troyan İnşaat. Tüm hakları saklıdır.
+              </p>
+            </div>
           </div>
         </div>
       </div>

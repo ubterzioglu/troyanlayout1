@@ -72,14 +72,14 @@ const ProjectsCTA = ({ onNavigate }: ProjectsCTAProps) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => handleNavClick('contact')}
-              className="btn-bronze group"
+              className="btn-bronze btn-uniform group"
             >
               Ücretsiz Teklif Al
               <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <a
               href="tel:+905325400517"
-              className="btn-outline"
+              className="btn-outline btn-uniform"
             >
               <Phone className="w-4 h-4 mr-2" />
               Hemen Ara

@@ -85,6 +85,22 @@
   .btn-outline-dark:hover {
     @apply bg-charcoal/5 border-charcoal;
   }
+
+  .btn-uniform {
+    min-width: 15rem;
+  }
+
+  @media (max-width: 639px) {
+    .btn-uniform {
+      width: 100%;
+    }
+  }
+
+  .hero-logo {
+    filter:
+      drop-shadow(0 12px 28px rgba(0, 0, 0, 0.5))
+      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  }
   
   /* Section Titles */
   .section-title {
